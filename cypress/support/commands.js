@@ -26,6 +26,8 @@
 
 /// <reference types="Cypress" />
 
+import auth from '../fixtures/auth.json'
+
 const faker = require('faker-br')
 const inputEmail = '[data-test="login-email"]'
 const inputSenha = '[data-test="login-password"]'
@@ -193,4 +195,27 @@ Cypress.Commands.add('editarPerfil', () => {
     .type(faker.company.bs())
     cy.get(btnConfirmaCriacaoPerfil).click()
     cy.get(modalAlerta).should('have.text', 'Perfil Atualizado')
+})
+
+Cypress.Commands.add('tokenJwt', () => {
+    cy.request({
+        method: 'POST',
+        url: '/api/auth',
+        body: auth
+    }).then((response) => {
+        return response.body.jwt
+    })
+})
+
+Cypress.Commands.add('criarPostagem', (token, texto) => {
+    cy.request({
+        method: 'POST',
+        url: '/api/posts',
+        headers: {
+            Cookies: token
+        },
+        body: {
+            text: texto
+        }
+    })
 })
