@@ -7,12 +7,18 @@ let massaUsuario;
 describe('Funcionalidade: Adicionar experiência', () => {
     
     beforeEach(() => {
-        cy.visit('login')
+        // cy.visit('login')
         
-        cy.fixture('user.json').then((usuario) => {
-            massaUsuario = usuario;
-        });
-       
+        // cy.fixture('user.json').then((usuario) => {
+        //     massaUsuario = usuario;
+        // });
+
+        cy.loginApp()
+        cy.visit('adicionar-experiencia')
+    });
+
+    it.only('Acessar Experiência', () => {
+        cy.log(2+2)
     });
 
     it('Deve adicionar uma experiência com sucesso', () => {

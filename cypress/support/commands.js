@@ -86,6 +86,19 @@ Cypress.Commands.add('login', (objUsuario) => {
     cy.get(txtBoasVindas).should('contain', 'Bem-vindo')
 })
 
+import user from "../fixtures/user.json"
+
+Cypress.Commands.add('loginApp', () => {
+    cy.request({
+        method: 'POST',
+        url: '/api/auth',
+        body: {
+                email: 'william.dsilva-ext@via.com.br',
+                password: 'homolog01'
+            }
+    })
+})
+
 Cypress.Commands.add('loginComErro', (objUsuario) => {
     cy.get(tituloPaginas).should('have.text', 'Login')
     cy.get(inputEmail).type(objUsuario.email)
