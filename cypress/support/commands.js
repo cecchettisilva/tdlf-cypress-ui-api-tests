@@ -219,3 +219,111 @@ Cypress.Commands.add('criarPostagem', (token, texto) => {
         }
     })
 })
+
+Cypress.Commands.add('cadastrarAPI', () => {
+    cy.request({
+        method: 'POST',
+        url: '/api/users',
+        body: {
+            "name": faker.name.findName(),
+            "email": faker.internet.email(),
+            "password": "teste123"
+        }
+    }).then((response) => {
+        expect(response.status).to.eq(201)
+    })
+})
+
+Cypress.Commands.add('criarPerfilAPI', (token) => {
+    cy.request({
+        method: 'POST',
+        url: '/api/profile',
+        headers: {
+            Cookies: token
+        },
+        body: {
+            company: faker.company.bs(),
+            status: "QA Pleno",
+            location: faker.address.city() + ', ' + faker.address.state(),
+            website: faker.internet.url(),
+            skills: "Automação de testes WEB, API, Performance, Mobile, Cypress, JS, Testes Manuais",
+            bio: faker.lorem.text(),
+            githubusername: "testeBootcampSemana4",
+            youtube: faker.internet.url(),
+            twitter: faker.internet.url(),
+            facebook: faker.internet.url(),
+            linkedin: faker.internet.url(),
+            instagram: faker.internet.url(),
+            medium: faker.internet.url()
+        }
+    }).then((response) => {
+        expect(response.status).to.eq(201)
+    })
+})
+
+Cypress.Commands.add('editarPerfilAPI', (token) => {
+    cy.request({
+        method: 'POST',
+        url: '/api/profile',
+        headers: {
+            Cookies: token
+        },
+        body: {
+            company: faker.company.bs(),
+            status: "QA Pleno",
+            location: faker.address.city() + ', ' + faker.address.state(),
+            website: faker.internet.url(),
+            skills: "Automação de testes WEB, API, Performance, Mobile, Cypress, JS, Testes Manuais",
+            bio: faker.lorem.text(),
+            githubusername: "testeBootcampSemana4"
+        }
+    }).then((response) => {
+        expect(response.status).to.eq(200)
+    })
+})
+
+Cypress.Commands.add('excluirContaCadastroAPI', (token) => {
+    cy.request({
+        method: 'DELETE',
+        url: '/api/profile',
+        headers: {
+            Cookies: token
+        }
+    }).then((response) => {
+        expect(response.status).to.eq(200)
+    })
+})
+
+Cypress.Commands.add('pesquisarPerfilAPI', (token) => {
+    cy.request({
+        method: 'GET',
+        url: '/api/profile/me',
+        headers: {
+            Cookies: token
+        }
+    }).then((response) => {
+        expect(response.status).to.eq(200)
+    })
+})
+
+Cypress.Commands.add('adicionarFormAcadAPI', (token) => {
+    cy.request({
+        method: 'PUT',
+        url: '/api/profile/education',
+        headers: {
+            Cookies: token
+        },
+        failOnStatusCode: false,
+        body: {
+            school: faker.lorem.word(),
+            degree: faker.lorem.word(),
+            fieldofstudy: faker.lorem.word(),
+            from: "01/01/2021",
+            to: "01/01/2022",
+            current: false,
+            description: faker.lorem.text()
+        }
+    }).then((response) => {
+        expect(response.status).to.eq(200)
+    })
+})
