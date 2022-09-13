@@ -1,0 +1,6 @@
+"Status","Start Time","Stop Time","Duration in ms","Parent Suite","Suite","Sub Suite","Test Class","Test Method","Name","Description"
+"failed","Tue Sep 13 15:13:38 GMT 2022","Tue Sep 13 15:13:51 GMT 2022","13225","Validar meus pedidos","Dado que acesso meus pedidos","","","","E realizo o login",""
+"failed","Tue Sep 13 15:14:09 GMT 2022","Tue Sep 13 15:14:39 GMT 2022","30222","Validar API Destaque","Dado que executo a busca por sku e lojista","","","","Quando executo um requisição com o metodo GET, passando o SKU e lojista",""
+"failed","Tue Sep 13 15:13:51 GMT 2022","Tue Sep 13 15:13:54 GMT 2022","3167","Validar meus pedidos","Dado que acesso meus pedidos","","","","Então visualizo a pagina de meus pedidos",""
+"failed","Tue Sep 13 15:14:39 GMT 2022","Tue Sep 13 15:14:39 GMT 2022","174","Validar API Destaque","Dado que executo a busca por sku e lojista","","","","Então a consulta será executada com sucesso",""
+"failed","Tue Sep 13 15:13:07 GMT 2022","Tue Sep 13 15:13:38 GMT 2022","30248","Validar meus pedidos","Dado que acesso meus pedidos","","","","Quando acesso a url ""https://meuspedidos.casasbahia.com.br/""",""

@@ -1,0 +1,1 @@
+{"total":2,"items":[{"uid":"1349d199469a8b63f71e3846eead37d1","name":"Validar meus pedidos","statistic":{"failed":3,"broken":0,"skipped":0,"passed":0,"unknown":0,"total":3}},{"uid":"0e193a86f5fa6339f3881888fe2bd6e6","name":"Validar API Destaque","statistic":{"failed":2,"broken":0,"skipped":0,"passed":0,"unknown":0,"total":2}}]}
